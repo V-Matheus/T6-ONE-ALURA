@@ -45,6 +45,30 @@ img {
   height: auto;
 }
 
+input {
+  appearance: none; /* Remove estilos específicos do sistema operacional */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: inherit;
+  padding: 8px;
+}
+
+/* Remova a borda padrão do Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Estilo adicional para inputs focados */
+input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Adicione outros estilos específicos conforme necessário */
+
+
 /* ----------------------------------------------- */
 
 
@@ -52,9 +76,33 @@ img {
   display: grid;
   width: 100vw;
   height: 100vh;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 150px 2fr 1fr;
   padding: 2.5rem;
   background: var(--Light-blue-light-blue-100, #F3F5FC);
+}
+
+.funcoes {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.funcoes input {
+  width: 680px;
+  height: 48px;
+
+  color: var(--Dark-blue-dark-blue-300, #0A3871);
+  font-family: Inter;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 48px */
+}
+
+.lembrete {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .resultado {
