@@ -1,6 +1,6 @@
 const texto = document.getElementById('texto')
 
-function mostrarResultado() {
+function mostrarResultado(str) {
   NEncontrado = document.querySelector('.nao-encontrado')
   Encontrado = document.querySelector('.encontrado')
   
@@ -10,8 +10,7 @@ function mostrarResultado() {
     NEncontrado.classList.add('hidden')
     Encontrado.classList.remove('hidden')
 
-    resultado.innerHTML = texto.value
-    
+    resultado.innerHTML = str
   } else {
     
     NEncontrado.classList.remove('hidden')
@@ -28,7 +27,23 @@ function criptografar() {
     textoCriptografado += charCode + ' ';
   }
 
-  mostrarResultado()
+  mostrarResultado(textoCriptografado)
 }
+
+function descriptografar() {
+  textoCriptografado = texto.value
+  const codigos = textoCriptografado.trim().split(' ');
+
+  let textoOriginal = '';
+
+  for (const codigo of codigos) {
+    const char = String.fromCharCode(parseInt(codigo, 10));
+    textoOriginal += char;
+  }
+
+  mostrarResultado(textoOriginal)
+}
+
+
 
 
