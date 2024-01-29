@@ -1,37 +1,35 @@
-const texto = document.getElementById('texto')
+const texto = document.getElementById('texto');
+const resultado = document.getElementById('resultado_texto');
 
 function mostrarResultado(str) {
-  NEncontrado = document.querySelector('.nao-encontrado')
-  Encontrado = document.querySelector('.encontrado')
-  
-  if(textoOriginal !== '') {
-    const resultado = document.getElementById('resultado_texto')
+  NEncontrado = document.querySelector('.nao-encontrado');
+  Encontrado = document.querySelector('.encontrado');
 
-    NEncontrado.classList.add('hidden')
-    Encontrado.classList.remove('hidden')
+  if (textoOriginal !== '') {
+    NEncontrado.classList.add('hidden');
+    Encontrado.classList.remove('hidden');
 
-    resultado.innerHTML = str
+    resultado.innerHTML = str;
   } else {
-    
-    NEncontrado.classList.remove('hidden')
-    Encontrado.classList.add('hidden')
+    NEncontrado.classList.remove('hidden');
+    Encontrado.classList.add('hidden');
   }
 }
 
 function criptografar() {
-  textoOriginal = texto.value
-  let textoCriptografado = ''
-  
+  textoOriginal = texto.value;
+  let textoCriptografado = '';
+
   for (let i = 0; i < textoOriginal.length; i++) {
     const charCode = textoOriginal.charCodeAt(i);
     textoCriptografado += charCode + ' ';
   }
 
-  mostrarResultado(textoCriptografado)
+  mostrarResultado(textoCriptografado);
 }
 
 function descriptografar() {
-  textoCriptografado = texto.value
+  textoCriptografado = texto.value;
   const codigos = textoCriptografado.trim().split(' ');
 
   let textoOriginal = '';
@@ -41,9 +39,27 @@ function descriptografar() {
     textoOriginal += char;
   }
 
-  mostrarResultado(textoOriginal)
+  mostrarResultado(textoOriginal);
 }
 
+function copy() {
+  let textareaTemporaria = document.createElement('textarea');
+  textareaTemporaria.value = resultado.innerText;
+
+  document.body.appendChild(textareaTemporaria);
+
+  textareaTemporaria.select();
+  textareaTemporaria.setSelectionRange(0, 999999);
+
+  try {
+    document.execCommand('copy');
+    alert('O texto foi copiado para a área de transferência');
+  } catch (err) {
+    console.error('Erro ao copiar texto para a área de transferência', err);
+  } finally {
+    document.body.removeChild(textareaTemporaria);
+  }
+}
 
 
 
