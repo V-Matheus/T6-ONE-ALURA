@@ -1,4 +1,6 @@
 const texto = document.getElementById('texto')
+const resultado = document.getElementById('resultado texto')
+
 
 console.log(typeof texto.value);
 
@@ -11,3 +13,5 @@ function criptografar() {
     textoCriptografado += charCode + ' ';
   }
 }
+
+

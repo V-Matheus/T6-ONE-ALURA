@@ -36,10 +36,21 @@
       </div>
     </div>
     <div class="resultado">
-      <div class="img"><img src="./assets/High quality products 1 1.svg" alt="svg"></div>
-      <h3>Nenhuma mensagem encontrada</h3>
-      <p>Digite um texto que você deseja criptografar ou descriptografar.</p>
-    </div>  
+
+      <div class="nao-encontrado">
+        <div class="img">
+          <img src="./assets/High quality products 1 1.svg" alt="svg">
+        </div>
+        <h3>Nenhuma mensagem encontrada</h3>
+        <p>Digite um texto que você deseja criptografar ou descriptografar.</p>
+      </div>
+
+      <div class="encontrado hidden">
+        <p id="resultado_texto"></p>
+        <button onclick="copy()" id="copy">Copiar</button>
+      </div>
+
+    </div>
   </div>
 
   <script src="./script.js"></script>
