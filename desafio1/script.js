@@ -1,14 +1,19 @@
 const texto = document.getElementById('texto')
-const resultado = document.getElementById('resultado texto')
 
 function mostrarResultado() {
   NEncontrado = document.querySelector('.nao-encontrado')
   Encontrado = document.querySelector('.encontrado')
   
   if(textoOriginal !== '') {
+    const resultado = document.getElementById('resultado_texto')
+
     NEncontrado.classList.add('hidden')
     Encontrado.classList.remove('hidden')
+
+    resultado.innerHTML = texto.value
+    
   } else {
+    
     NEncontrado.classList.remove('hidden')
     Encontrado.classList.add('hidden')
   }

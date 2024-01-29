@@ -189,8 +189,13 @@ input[type="reset"] {
   align-items: center;
   padding: 50px 20px;
   height: 100%;
+  max-width: 100%;
 }
 
+#resultado_texto {
+  max-width: 300px;
+  overflow-wrap: break-word
+}
 
 #copy {
   width: 336px;
