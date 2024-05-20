@@ -11,4 +11,11 @@ for (let contador = 0; contador < litaDeTeclas.length; contador++) {
   const idAudio = `#som_${instrumento}`
 
   tecla.onclick = () => tocaSom(idAudio);
+
+  tecla.onkeydown = (evento) => {
+    if(evento.code === 'Space' || evento.code === 'Enter') {
+      tecla.classList.add('ativa')
+    }
+  }
+  tecla.onkeyup = () => tecla.classList.remove('ativa')
 }
