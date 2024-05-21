@@ -8,10 +8,10 @@ const botoes = document.querySelectorAll('.app__card-button');
 const musicaFocoInput = document.querySelector('#alternar-musica');
 const musica = new Audio('./sons/luna-rise-part-one.mp3');
 const startPauseBt = document.querySelector('#start-pause');
-const iniciarOuPausarBt = document.querySelector('#start-pause span')
-const tempoNaTela = document.querySelector('#timer')
+const iniciarOuPausarBt = document.querySelector('#start-pause span');
+const tempoNaTela = document.querySelector('#timer');
 
-let tempoDecorridoEmSegundos = 5;
+let tempoDecorridoEmSegundos = 1500;
 let intervaloId = null;
 
 musica.loop = true;
@@ -25,21 +25,27 @@ musicaFocoInput.addEventListener('change', () => {
 });
 
 focoBt.addEventListener('click', () => {
+  tempoDecorridoEmSegundos = 1500;
   alterandoContexto('foco');
   focoBt.classList.add('active');
 });
 
 curtoBt.addEventListener('click', () => {
+  tempoDecorridoEmSegundos = 300;
+
   alterandoContexto('descanso-curto');
   curtoBt.classList.add('active');
 });
 
 descansoBt.addEventListener('click', () => {
+  tempoDecorridoEmSegundos = 900;
+
   alterandoContexto('descanso-longo');
   descansoBt.classList.add('active');
 });
 
 function alterandoContexto(contexto) {
+  mostrarTempo()
   botoes.forEach((contexto) => {
     contexto.classList.remove('active');
   });
@@ -71,34 +77,38 @@ function alterandoContexto(contexto) {
 
 const contagemRegressiva = () => {
   if (tempoDecorridoEmSegundos <= 0) {
-    zerar()
+    zerar();
     alert('Tempo finalizado');
     return;
   }
   tempoDecorridoEmSegundos--;
-  mostrarTempo()
+  mostrarTempo();
 };
 
 startPauseBt.addEventListener('click', iniciarOuPausar);
 
 function iniciarOuPausar() {
-  if(intervaloId) {
-    zerar()
-    return
+  if (intervaloId) {
+    zerar();
+    return;
   }
   intervaloId = setInterval(contagemRegressiva, 1000);
-  iniciarOuPausarBt.textContent = 'Pausar'
+  iniciarOuPausarBt.textContent = 'Pausar';
 }
 
 function zerar() {
-  clearInterval(intervaloId)
-  iniciarOuPausarBt.textContent = 'Começar'
-  intervaloId = null
+  clearInterval(intervaloId);
+  iniciarOuPausarBt.textContent = 'Começar';
+  intervaloId = null;
 }
 
 function mostrarTempo() {
-  const tempo  = tempoDecorridoEmSegundos
-  tempoNaTela.innerHTML = `${tempo}`
+  const tempo = new Date(tempoDecorridoEmSegundos * 1000);
+  const tempoFormatado = tempo.toLocaleTimeString('pt-Br', {
+    minute: '2-digit',
+    second: '2-digit',
+  });
+  tempoNaTela.innerHTML = `${tempoFormatado}`;
 }
 
-mostrarTempo()
+mostrarTempo();
