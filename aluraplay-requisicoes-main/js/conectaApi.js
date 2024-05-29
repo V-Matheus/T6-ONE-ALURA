@@ -1,25 +1,25 @@
 export async function listaVideos() {
-  const conexao = await fetch('http://localhost:3000/videos')
-  const conexaoConvertida = await conexao.json()
-  
+  const conexao = await fetch('http://localhost:3000/videos');
+  const conexaoConvertida = await conexao.json();
+
   console.log(conexaoConvertida);
-  return conexaoConvertida
+  return conexaoConvertida;
 }
 
 export async function criaVideo(titulo, descricao, url, imagem) {
   const conexao = await fetch('http://localhost:3000/videos', {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-type": "application/json"
+      'Content-type': 'application/json',
     },
     body: JSON.stringify({
-      titulo,
+      titulo: titulo,
       descricao: `${descricao} mil visualizações`,
-      url,
-      imagem,
-    })
-  })
+      url: url,
+      imagem: imagem,
+    }),
+  });
 
-  const conexaoConvertida = await conexao.json()
-  return conexaoConvertida
+  const conexaoConvertida = await conexao.json();
+  return conexaoConvertida;
 }
