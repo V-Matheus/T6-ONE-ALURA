@@ -20,13 +20,17 @@ export async function criaVideo(titulo, descricao, url, imagem) {
     }),
   });
 
+  if (!conexao.ok) {
+    throw new Error('Não foi possivel enviar o vídeo');
+  }
+
   const conexaoConvertida = await conexao.json();
   return conexaoConvertida;
 }
 
 export async function buscarVideo(termoDeBusca) {
-  const conexao = await fetch(`http://localhost:3000/videos?q=${termoDeBusca}`)
-  const conexaoConvertida = conexao.json()
+  const conexao = await fetch(`http://localhost:3000/videos?q=${termoDeBusca}`);
+  const conexaoConvertida = conexao.json();
 
-  return conexaoConvertida
+  return conexaoConvertida;
 }
