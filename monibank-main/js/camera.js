@@ -1,6 +1,10 @@
 const botaoIniciarCamera = document.querySelector('[data-video-botao]');
 const campoCamera = document.querySelector('[data-camera]');
 const video = document.querySelector('[data-video]');
+const botaoTirarFoto = document.querySelector('[data-tirar-foto]');
+const canvas = document.querySelector('[data-video-canvas]');
+const mensagem = document.querySelector('[data-mensagem]');
+const imagemUrl = '';
 
 botaoIniciarCamera.addEventListener('click', async () => {
   const iniciarVideo = await navigator.mediaDevices.getUserMedia({
@@ -12,4 +16,13 @@ botaoIniciarCamera.addEventListener('click', async () => {
   campoCamera.style.display = 'block';
 
   video.srcObject = iniciarVideo;
+});
+
+botaoTirarFoto.addEventListener('click', () => {
+  canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+
+  imagemUrl = canvas.toDataURL('imagem/jpeg');
+
+  campoCamera.style.display = 'none';
+  mensagem.style.display = 'block';
 });
