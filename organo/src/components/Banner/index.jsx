@@ -1,7 +1,7 @@
 import React from 'react';
 import './Banner.css';
 
-const Banner = () => {
+export const Banner = () => {
   return (
     <header className="banner">
       <img src="../imagens/banner.png" alt="" />
@@ -9,4 +9,3 @@ const Banner = () => {
   );
 };
 
-export default Banner;
