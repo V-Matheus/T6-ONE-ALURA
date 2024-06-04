@@ -4,7 +4,7 @@ import { ListaSuspensa } from '../ListaSuspensa';
 import './Formulario.css';
 import { Botao } from '../Botao';
 
-export const Formulario = () => {
+export const Formulario = ({ aoColaboradorCadastrado }) => {
   const [nome, setNome] = useState('');
   const [cargo, setCargo] = useState('');
   const [imagem, setImagem] = useState('');
@@ -22,7 +22,7 @@ export const Formulario = () => {
 
   const aoSalvar = (event) => {
     event.preventDefault();
-    console.log('deu bom, ', nome, cargo, imagem);
+    aoColaboradorCadastrado({nome, cargo, imagem, time});
   };
 
   return (
