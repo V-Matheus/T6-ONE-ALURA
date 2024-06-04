@@ -1,14 +1,14 @@
 import React from 'react'
 import './Colaborador.css'
 
-export const Colaborador = () => {
+export const Colaborador = ({nome, cargo, imagem}) => {
   return (<div className='colaborador'> 
       <div className='cabecalho'>
-          <img src='https://github.com/V-Matheus.png' alt=''/>
+          <img src={imagem} alt={nome}/>
       </div>
       <div className='rodape'>
-          <h4>Victor Matheus</h4>
-          <h5>Dev</h5>
+          <h4>{nome}</h4>
+          <h5>{cargo}</h5>
       </div>
   </div>)
 }
