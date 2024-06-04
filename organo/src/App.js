@@ -48,12 +48,18 @@ function App() {
     <div className="App">
       <Banner />
       <Formulario
+        times={times.map((time) => time.nome)}
         aoColaboradorCadastrado={(colaborador) =>
           aonovoColaboradorAdicionado(colaborador)
         }
       />
       {times.map((time) => (
-        <Time key={time.nome} nome={time.nome} corPrimaria={time.corPrimaria} corSecundaria={time.corSecundaria} />
+        <Time
+          key={time.nome}
+          nome={time.nome}
+          corPrimaria={time.corPrimaria}
+          corSecundaria={time.corSecundaria}
+        />
       ))}
     </div>
   );

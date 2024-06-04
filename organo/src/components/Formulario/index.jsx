@@ -4,21 +4,11 @@ import { ListaSuspensa } from '../ListaSuspensa';
 import './Formulario.css';
 import { Botao } from '../Botao';
 
-export const Formulario = ({ aoColaboradorCadastrado }) => {
+export const Formulario = ({ aoColaboradorCadastrado, times }) => {
   const [nome, setNome] = useState('');
   const [cargo, setCargo] = useState('');
   const [imagem, setImagem] = useState('');
   const [time, setTime] = useState('');
-
-  const itens = [
-    'Programação',
-    'Front-End',
-    'Data Science',
-    'Devops',
-    'UX e Design',
-    'Mobile',
-    'Inovação e Gestão',
-  ];
 
   const aoSalvar = (event) => {
     event.preventDefault();
@@ -54,7 +44,7 @@ export const Formulario = ({ aoColaboradorCadastrado }) => {
         <ListaSuspensa
           obrigatorio={true}
           label="Time"
-          itens={itens}
+          itens={times}
           valor={time}
           aoAlterado={(valor) => setTime(valor)}
         />
