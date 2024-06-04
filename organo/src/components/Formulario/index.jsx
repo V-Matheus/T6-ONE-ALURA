@@ -2,6 +2,7 @@ import React from 'react';
 import { CampoTexto } from '../CampoTexto';
 import { ListaSuspensa } from '../ListaSuspensa';
 import './Formulario.css';
+import { Botao } from '../Botao';
 
 export const Formulario = () => {
 
@@ -23,6 +24,7 @@ export const Formulario = () => {
         <CampoTexto label="Cargo" placeholder="Digite seu cargo" />
         <CampoTexto label="Imagem" placeholder="Digite o endereço da imagem" />
         <ListaSuspensa label='Time' itens={itens}/>
+        <Botao>Criar Card</Botao>
       </form>
     </section>
   );
