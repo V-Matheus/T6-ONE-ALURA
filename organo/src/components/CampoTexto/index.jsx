@@ -1,11 +1,11 @@
 import React from 'react'
 import './CampoTexto.css'
 
-export const CampoTexto = ({label, placeholder}) => {
+export const CampoTexto = ({label, placeholder, obrigatorio}) => {
   return (
     <div className='campo-texto'>
       <label htmlFor="">{label}</label>
-      <input type="text" placeholder={placeholder} />
+      <input required={obrigatorio} type="text" placeholder={placeholder} />
     </div>
   )
 }
