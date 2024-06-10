@@ -44,13 +44,13 @@ function App() {
   ]);
 
   const [colaboradores, setColaboradores] = useState([]);
-
-  const aonovoColaboradorAdicionado = (colaborador) => {
+  console.log(colaboradores);
+  const aoNovoColaboradorAdicionado = (colaborador) => {
     setColaboradores([...colaboradores, colaborador]);
   };
 
-  function deletarColaborador() {
-    console.log('deletando');
+  function deletarColaborador(nome) {
+    setColaboradores(colaboradores.filter(colaborador  => colaborador.nome !== nome))
   }
 
   function mudarCorDoTime(cor, id) {
@@ -70,7 +70,7 @@ function App() {
       <Formulario
         times={times.map((time) => time.nome)}
         aoColaboradorCadastrado={(colaborador) =>
-          aonovoColaboradorAdicionado(colaborador)
+          aoNovoColaboradorAdicionado(colaborador)
         }
       />
       {times.map((time) => (

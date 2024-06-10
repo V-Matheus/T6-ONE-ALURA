@@ -24,11 +24,9 @@ export const Time = ({ time, colaboradores, aoDeletar, mudarCor }) => {
           {colaboradores.map((colaborador) => {
             return (
               <Colaborador
+                colaborador={colaborador}
                 corDeFundo={time.cor}
-                key={colaborador.nome}
-                nome={colaborador.nome}
-                cargo={colaborador.cargo}
-                imagem={colaborador.imagem}
+                key={colaborador.id}
                 aoDeletar={aoDeletar}
               />
             );
