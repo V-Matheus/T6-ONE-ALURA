@@ -50,7 +50,9 @@ function App() {
   };
 
   function deletarColaborador(nome) {
-    setColaboradores(colaboradores.filter(colaborador  => colaborador.nome !== nome))
+    setColaboradores(
+      colaboradores.filter((colaborador) => colaborador.nome !== nome),
+    );
   }
 
   function mudarCorDoTime(cor, id) {
@@ -64,10 +66,15 @@ function App() {
     );
   }
 
+  function cadastrarTime(novoTime) {
+    setTimes([...times, { ...novoTime, id: uuidv4() }]);
+  }
+
   return (
     <div className="App">
       <Banner />
       <Formulario
+        cadastrarTime={cadastrarTime}
         times={times.map((time) => time.nome)}
         aoColaboradorCadastrado={(colaborador) =>
           aoNovoColaboradorAdicionado(colaborador)
