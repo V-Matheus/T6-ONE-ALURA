@@ -6,6 +6,7 @@ export const Time = ({ nome, corPrimaria, corSecundaria, colaboradores, aoDeleta
   return (
     colaboradores.length > 0 && (
       <section style={{ backgroundColor: corSecundaria }} className="time">
+        <input value={corSecundaria} type="color" className='input-cor'/>
         <h3 style={{ borderColor: corPrimaria }}>{nome}</h3>
         <div className="colaboradores">
           {colaboradores.map((colaborador) => {
