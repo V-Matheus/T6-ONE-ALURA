@@ -1,8 +1,9 @@
 import React from 'react';
-import styles from './Post.module.css';
+import './Post.css';
 import { useParams } from 'react-router-dom';
 import posts from '../../assets/json/posts.json';
 import { PostModelo } from '../../components/PostModelo';
+import ReactMarkdown from 'react-markdown';
 
 export const Post = () => {
   const parametros = useParams();
@@ -14,7 +15,9 @@ export const Post = () => {
 
   return (
     <PostModelo fotoCapa={imagePath} titulo={post.titulo}>
-      Texto
+      <div className='post-markdown-container'>
+        <ReactMarkdown>{post.texto}</ReactMarkdown>
+      </div>
     </PostModelo>
-  )
+  );
 };
