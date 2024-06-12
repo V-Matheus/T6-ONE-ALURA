@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Post.module.css';
 import { Link } from 'react-router-dom';
+import { BotaoPrincipal } from '../BotaoPrincipal';
 
 export const PostCard = ({ post }) => {
   const imagePath = require(`../../assets/posts/${post.id}/capa.png`);
@@ -16,7 +17,7 @@ export const PostCard = ({ post }) => {
 
         <h2 className={styles.titulo}>{post.titulo}</h2>
 
-        <button className={styles.botaoLer}>Ler</button>
+        <BotaoPrincipal>Ler</BotaoPrincipal>
       </div>
     </Link>
   );
