@@ -1,7 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 export const SobreMim = () => {
   return (
-    <h1>Sobre mim...</h1>
-  )
-}
+    <main>
+      sobre mim
+    </main>
+  );
+};
