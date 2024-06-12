@@ -11,11 +11,15 @@ export const Post = () => {
     return post.id === Number(parametros.id);
   });
 
+  if (!post) {
+    return <h1>Post não encontrado...</h1>;
+  }
+
   const imagePath = require(`../../assets/posts/${post.id}/capa.png`);
 
   return (
     <PostModelo fotoCapa={imagePath} titulo={post.titulo}>
-      <div className='post-markdown-container'>
+      <div className="post-markdown-container">
         <ReactMarkdown>{post.texto}</ReactMarkdown>
       </div>
     </PostModelo>
