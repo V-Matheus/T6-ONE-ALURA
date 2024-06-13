@@ -2,6 +2,7 @@ import { styled } from 'styled-components';
 import EstilosGlobais from './components/EstilosGlobais';
 import { Cabecalho } from './components/Cabecalho';
 import { BarraLateral } from './components/BarraLateral';
+import { Banner } from './components/Banner';
 
 const FundoGradient = styled.div`
   background: linear-gradient(
@@ -19,7 +20,16 @@ function App() {
     <FundoGradient>
       <EstilosGlobais />
       <Cabecalho />
-      <BarraLateral />
+      <div
+        style={{
+          display: 'flex',
+          padding: '2rem',
+          justifyContent: 'space-between',
+        }}
+      >
+        <BarraLateral />
+        <Banner />
+      </div>
     </FundoGradient>
   );
 }

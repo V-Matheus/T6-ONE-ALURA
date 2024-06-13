@@ -8,7 +8,6 @@ const CampoTextoEstilizado = styled.input`
   border-radius: 5px;
   padding-left: 15px;
   color: #d9d9d9;
-  font-family: Gandhi Sans;
   font-size: 20px;
   font-weight: 400;
   line-height: 20px;
