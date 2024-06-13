@@ -78,6 +78,8 @@ pre {
 
 a {
   background-color: transparent;
+  text-decoration: none;
+  color: inherit
 }
 
 /**
@@ -264,6 +266,12 @@ progress {
 
 textarea {
   overflow: auto;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 /**
