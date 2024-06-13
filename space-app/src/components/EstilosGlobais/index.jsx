@@ -179,6 +179,7 @@ textarea {
 button,
 input { /* 1 */
   overflow: visible;
+  border: none;
 }
 
 /**
