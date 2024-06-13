@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import EstilosGlobais from './components/EstilosGlobais';
 
 const FundoGradient = styled.div`
   background: linear-gradient(
@@ -12,7 +13,11 @@ const FundoGradient = styled.div`
 `;
 
 function App() {
-  return <FundoGradient></FundoGradient>;
+  return (
+    <FundoGradient>
+      <EstilosGlobais />
+    </FundoGradient>
+  );
 }
 
 export default App;
