@@ -4,6 +4,9 @@ import { Cabecalho } from './components/Cabecalho';
 import { BarraLateral } from './components/BarraLateral';
 import { Banner } from './components/Banner';
 import { Galeria } from './components/Galeria';
+import fotos from './fotos.json';
+import { useState } from 'react';
+import { ModalZoom } from './components/ModalZoom';
 
 const FundoGradient = styled.div`
   background: linear-gradient(
@@ -33,7 +36,10 @@ const ConteudoGaleria = styled.section`
   flex-grow: 1;
 `;
 
-function App() {
+const App = () => {
+  const [fotosDaGaleria, setFotosDaGaleria] = useState(fotos);
+  const [fotoSelecionada, setFotoSelecionada] = useState(null);
+
   return (
     <FundoGradient>
       <EstilosGlobais />
@@ -43,12 +49,16 @@ function App() {
           <BarraLateral />
           <ConteudoGaleria>
             <Banner />
-            <Galeria />
+            <Galeria
+              aoFotoSelecionada={(foto) => setFotoSelecionada(foto)}
+              fotos={fotosDaGaleria}
+            />
           </ConteudoGaleria>
         </MainContainer>
       </AppContainer>
+      <ModalZoom foto={fotoSelecionada}/>
     </FundoGradient>
   );
-}
+};
 
 export default App;
