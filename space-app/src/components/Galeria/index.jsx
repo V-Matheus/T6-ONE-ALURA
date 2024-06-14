@@ -21,7 +21,11 @@ const SessaoFluida = styled.section`
   }
 `;
 
-export const Galeria = ({ fotos = [], aoFotoSelecionada }) => {
+export const Galeria = ({
+  fotos = [],
+  aoFotoSelecionada,
+  aoAlternarFavorito,
+}) => {
   return (
     <>
       <Tags />
@@ -30,7 +34,12 @@ export const Galeria = ({ fotos = [], aoFotoSelecionada }) => {
           <Titulo>Galeria</Titulo>
           <div>
             {fotos.map((foto) => (
-              <Imagem aoZoomSolicitado={aoFotoSelecionada} key={foto.id} foto={foto}>
+              <Imagem
+                aoAlternarFavorito={aoAlternarFavorito}
+                aoZoomSolicitado={aoFotoSelecionada}
+                key={foto.id}
+                foto={foto}
+              >
                 {foto.titulo}
               </Imagem>
             ))}
